@@ -14,7 +14,7 @@ var options = {
 };
 
 var client = tls.connect(PORT, HOST, options, function() {
-    console.log(client)
+    // console.log(client)
 
 
     // Check if the authorization worked
@@ -41,9 +41,7 @@ client.on("data", function(data) {
 });
 
 client.on('close', function() {
-
     console.log("Connection closed");
-
 });
 
 // When an error ocoures, show it.
