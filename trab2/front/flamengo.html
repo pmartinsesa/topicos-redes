@@ -1,0 +1,33 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+   </head>
+   <body>
+      <div id = "vue_det">
+          <div v-html="firstname"></span>
+      </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type = "text/javascript">
+   
+    var vm = new Vue({
+        el: '#vue_det',
+        data: {
+            firstname : "Ria",
+            lastname  : "Singh",
+            htmlcontent : "<div><h1>Vue Js Template</h1></div>",
+            hino: ''
+        },
+        created: function () {
+            context = this
+            axios.get('https://localhost:9443/flamengo').then(function (response) {
+                context.firstname = response.data
+        }).catch(function (error) {
+            console.log('erro', error)
+            })
+        }
+    })
+
+    </script>
+   </body>
+</html>
