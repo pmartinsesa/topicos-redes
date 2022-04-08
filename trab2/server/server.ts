@@ -1,11 +1,13 @@
 import https from "https";
 import path from "path";
 import fs from "fs";
+import cors from "cors";
 
 import express from "express";
 import { Request, Response } from "express";
 
 const app = express();
+app.use(cors());
 
 app.get("/", (req, res) => {
   return res.send("Hello, world!");
