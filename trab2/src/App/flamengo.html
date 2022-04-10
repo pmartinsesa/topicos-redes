@@ -5,7 +5,8 @@
    </head>
    <body>
       <div id = "vue_det">
-          <div v-html="firstname"></span>
+        <div v-html="htmlcontent"></div>
+        <div v-html="firstname"></div>
       </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type = "text/javascript">
@@ -21,7 +22,9 @@
         created: function () {
             context = this
             axios.get('https://localhost:9443/flamengo').then(function (response) {
+                console.log(response)
                 context.firstname = response.data
+                context.hino = response.data
         }).catch(function (error) {
             console.log('erro', error)
             })
