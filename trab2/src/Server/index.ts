@@ -18,7 +18,6 @@ const configApi = () => {
 
 const runServer = () => {
   const app = configApi();
-
   https
     .createServer(
       {
@@ -28,8 +27,8 @@ const runServer = () => {
         key: fs.readFileSync(
           path.resolve(__dirname, "../../Keys/private-key.pem")
         ),
-        requestCert: false,
-        rejectUnauthorized: false,
+        requestCert: true,
+        rejectUnauthorized: true,
       },
       app
     )

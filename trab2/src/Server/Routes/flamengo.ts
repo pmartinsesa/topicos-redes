@@ -1,12 +1,27 @@
 import { FLAMENGO_PLAYERS } from "../Database/flamengoPlayer";
 
 export const flamengoRoutes = (app: any) => {
-  app.get("/", (_ : any, res: any) => {
+  app.get("/", (_: any, res: any) => {
     return res.send("Trabalho 2 de Tópicos Avançados em Redes");
   });
 
-  app.get("/flamengo", (_: any, res: any) => {
-    const players = FLAMENGO_PLAYERS;
-    return res.send(players);
+  app.post("/flamengo", (req: any, res: any) => {
+    const body = req.body.data;
+    const choosePlayer = getPlayerIndex(body);
+    
+    const player = FLAMENGO_PLAYERS[choosePlayer];
+
+    console.log(player);
+    return res.send(player);
   });
+};
+
+const getPlayerIndex = (body: any) => {
+  const bodyLength =
+    body.nome.length +
+    body.idade.length +
+    body.peso.length +
+    body.altura.length;
+
+  return bodyLength % FLAMENGO_PLAYERS.length;
 };
