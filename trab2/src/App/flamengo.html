@@ -13,6 +13,12 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript" src="./scripts/script.js"></script>
+    <script type="text/javascript" src="./scripts/path.js"></script>
+    <script type="text/javascript" src="./scripts/https.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+
   </head>
   <body>
     <div id="elem">
@@ -72,44 +78,36 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/require.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="text/javascript">
-        
-      // this.$axios({ })
-      var vm = new Vue({
-        el: "#elem",
-        data: {
-          nome: null,
-          idade: null,
-          peso: null,
-          altura: null,
-          baseURL: "https://localhost:9443",
-        },
-        created: function () {},
-        methods: {
-          Descobrir: async function () {
-            const data = {
-              nome: this.nome,
-              idade: this.idade,
-              peso: this.peso,
-              altura: this.altura,
-            };
-            console.log(data);
-            try {
-                const https = require(["https"]);
-                const path = require(["path"]);
-                const fs = require(["fs"]);
 
-                const httpsAgent = new https.Agent({
-                // rejectUnauthorized: false, // (NOTE: this will disable client verification)
-                cert: fs.readFileSync(
-                  path.resolve(__dirname, "../../../Keys/public-cert.pem")
-                ),
-                key: fs.readFileSync(
-                  path.resolve(__dirname, "../../../Keys/private-key.pem")
-                ),
-              });
+    <script type="text/javascript">
+       // this.$axios({ })
+       var vm = new Vue({
+           el: "#elem",
+           data: {
+               nome: null,
+               idade: null,
+               peso: null,
+               altura: null,
+               baseURL: "https://localhost:9443",
+            },
+            created: function () {},
+            methods: {
+                Descobrir: async function () {
+                    const data = {
+                        nome: this.nome,
+                        idade: this.idade,
+                        peso: this.peso,
+                        altura: this.altura,
+                       
+                    };
+                    
+                    try {
+                        keyy = null
+                        keyy = fetch('../../../Keys/public-cert.pem')
+                        .then(response =>  response.text())
+                        console.log(keyy)
+                        // outputs the content of the text file
+                        const httpsAgent = new Agent({cert: keyy,key:keyy});
 
               const response = await axios.post(this.baseURL + "/flamengo", {
                 data, httpsAgent
