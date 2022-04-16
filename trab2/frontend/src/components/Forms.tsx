@@ -32,7 +32,7 @@ export const Forms = (): any => {
               <formik.Field type="altura" name="altura" placeholder="1,89m" />
             </Box>
             <Box py={2}>
-              <Button mt={4} colorScheme="teal" type="submit">
+              <Button mt={4}  colorScheme="red" type="submit">
                 Submit
               </Button>
             </Box>
