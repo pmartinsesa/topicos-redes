@@ -1,0 +1,6 @@
+body {
+  background-image: url("./Assets/fla-bg.jpg") !important;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}

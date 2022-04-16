@@ -6,7 +6,10 @@ export const flamengoRoutes = (app: any) => {
   });
 
   app.post("/flamengo", (req: any, res: any) => {
-    const body = req.body.data;
+    console.log(req);
+    const body = req.body;
+    console.log(req.body)
+
     const choosePlayer = getPlayerIndex(body);
     
     const player = FLAMENGO_PLAYERS[choosePlayer];
