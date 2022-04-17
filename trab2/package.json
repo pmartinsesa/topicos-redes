@@ -24,6 +24,7 @@
     "axios": "^0.26.1",
     "cors": "^2.8.5",
     "express": "^4.17.3",
+    "node-rsa": "^1.1.1",
     "wait-for-user-input": "^1.0.0"
   },
   "devDependencies": {
