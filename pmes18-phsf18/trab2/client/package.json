@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "asciify-image": "^0.1.8",
-    "axios": "^0.26.1"
+    "axios": "^0.26.1",
+    "node-rsa": "^1.1.1",
+    "wait-for-user-input": "^1.0.0"
   }
 }
